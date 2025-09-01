@@ -2,6 +2,7 @@
 title: "Understanding CSS Box Models: content-box vs border-box"
 abstract: "Learn the fundamental difference between CSS box models and how they affect element sizing and layout calculations."
 publishedOn: "2024-01-15"
+public: true
 ---
 
 # Understanding CSS Box Models: content-box vs border-box
@@ -44,23 +45,7 @@ In this example, the total width remains **200px**, but the content area becomes
 
 ## Interactive Demo
 
-Below is an interactive demonstration that shows the difference between these two box models. Try switching between them and adjusting the padding, border, and margin values to see how they affect the element sizing:
-
 <BoxModelDemo />
-
-## When to Use Each
-
-### Use content-box when:
-
-- You need precise control over content dimensions
-- Working with legacy layouts that expect this behavior
-- You want padding and borders to expand the element
-
-### Use border-box when:
-
-- You want more predictable sizing
-- Working with responsive designs
-- You prefer that width/height represent the total box size
 
 ## Global Reset
 

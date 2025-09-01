@@ -47,9 +47,7 @@ html {
   --outer-content-width: 80rem;
   --viewport-padding: 16px;
   --header-height: 5rem;
-  --trimmed-content-width: calc(
-    var(--content-width) - var(--viewport-padding) * 2
-  );
+  --trimmed-content-width: calc(var(--content-width) - var(--viewport-padding) * 2);
 }
 
 @media (min-width: 35rem) {
@@ -60,17 +58,11 @@ html {
 
 /* GLOBAL STYLES */
 ::selection {
-  background-color: var(
-    --color-selection-background
-  ) !important;
+  background-color: var(--color-selection-background) !important;
   color: var(--color-selection-text) !important;
   background-image: none !important;
-  -webkit-text-fill-color: var(
-    --color-selection-text
-  ) !important;
-  -moz-text-fill-color: var(
-    --color-selection-text
-  ) !important;
+  -webkit-text-fill-color: var(--color-selection-text) !important;
+  -moz-text-fill-color: var(--color-selection-text) !important;
   background-image: none !important;
   background-clip: revert !important;
   -webkit-background-clip: revert !important;
@@ -101,11 +93,7 @@ body::before {
   left: 0;
   right: 0;
   height: 50vh;
-  background: linear-gradient(
-    to top,
-    var(--color-backdrop),
-    var(--color-backdrop-highlight)
-  );
+  background: linear-gradient(to top, var(--color-backdrop), var(--color-backdrop-highlight));
 }
 
 body > main {
@@ -173,4 +161,19 @@ button {
   h3 {
     font-size: 1.5rem;
   }
+}
+
+/* markdown table styles */
+table {
+  --table-primary: #10b981;
+  --table-secondary: #f3f4f6;
+  border: 1px solid #e2e8f0;
+}
+
+table thead {
+  background: var(--table-primary);
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--table-secondary);
 }

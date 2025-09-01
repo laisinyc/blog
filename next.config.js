@@ -10,4 +10,9 @@ module.exports = withBundleAnalyzer({
   // Your existing Next.js configuration goes here
   // For example:
   // reactStrictMode: true,
+  experimental: {
+    outputFileTracingIncludes: {
+      '/*': ['./content/**/*'],
+    },
+  },
 })

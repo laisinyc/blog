@@ -1,10 +1,25 @@
+import React from 'react';
 
-export default function Home() {
+import BlogSummaryCard from '@/components/BlogSummaryCard';
+
+import styles from './homepage.module.css';
+import { getBlogPostList } from '@/helpers/file-helpers';
+
+async function Home() {
+  const blogs = await getBlogPostList();
   return (
-    <div >
-      <main>
-        Hello there!!!
-      </main>
+    <div className={styles.wrapper}>
+      <h1 className={styles.mainHeading}>
+        Latest Content:
+      </h1>
+      {blogs.map(({ ...delegated }, idx) => (
+        <BlogSummaryCard
+          key={idx}
+          {...delegated}
+        />
+      ))}
     </div>
   );
 }
+
+export default Home;

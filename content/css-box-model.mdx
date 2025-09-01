@@ -1,0 +1,83 @@
+---
+title: "Understanding CSS Box Models: content-box vs border-box"
+abstract: "Learn the fundamental difference between CSS box models and how they affect element sizing and layout calculations."
+publishedOn: "2024-01-15"
+---
+
+# Understanding CSS Box Models: content-box vs border-box
+
+CSS box models are fundamental to understanding how elements are sized and laid out on a web page. There are two main box models: `content-box` (the default) and `border-box`. Understanding the difference between these can save you from many layout headaches.
+
+## The Two Box Models
+
+### content-box (Default)
+
+With `content-box`, the width and height you specify only apply to the content area. Padding and borders are added on top of these dimensions, making the total box larger than expected.
+
+```css
+.box {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  border: 10px solid blue;
+  box-sizing: content-box; /* This is the default */
+}
+```
+
+In this example, the total width becomes: 200px + (20px × 2) + (10px × 2) = **260px**
+
+### border-box
+
+With `border-box`, the width and height you specify include the content, padding, and border. The content area shrinks to accommodate padding and borders.
+
+```css
+.box {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  border: 10px solid blue;
+  box-sizing: border-box;
+}
+```
+
+In this example, the total width remains **200px**, but the content area becomes: 200px - (20px × 2) - (10px × 2) = **140px**
+
+## Interactive Demo
+
+Below is an interactive demonstration that shows the difference between these two box models. Try switching between them and adjusting the padding, border, and margin values to see how they affect the element sizing:
+
+<BoxModelDemo />
+
+## When to Use Each
+
+### Use content-box when:
+
+- You need precise control over content dimensions
+- Working with legacy layouts that expect this behavior
+- You want padding and borders to expand the element
+
+### Use border-box when:
+
+- You want more predictable sizing
+- Working with responsive designs
+- You prefer that width/height represent the total box size
+
+## Global Reset
+
+Many developers prefer to use `border-box` globally for more intuitive sizing. You can do this with:
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+This makes all elements use `border-box` by default, which is often more intuitive for layout calculations.
+
+## Browser Support
+
+Both box models are supported in all modern browsers. The `box-sizing` property has excellent support going back to IE8.
+
+## Conclusion
+
+Understanding CSS box models is crucial for creating predictable layouts. While `content-box` is the default, `border-box` often provides more intuitive sizing behavior. The interactive demo above should help you visualize these differences and make informed decisions about which to use in your projects.

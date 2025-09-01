@@ -1,0 +1,73 @@
+---
+title: 'HTML + CSS 收官 (EVPlayer -> 前端课程)'
+abstract: HTML & CSS 重要补充知识
+publishedOn: '2021-09-06T12:00:00-0400'
+---
+
+# 公共样式
+
+所有的公共样式书写到 `common.css` 中
+
+## 统一样式
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #ff6700;
+}
+html {
+  color: #333;
+  min-width: 1226px;
+  font: 14px/1.5 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
+    'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif;
+}
+```
+
+## 浮动处理
+
+```css
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+```
+
+## 通用容器
+
+```css
+.container {
+  width: 1226px;
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+## 字体图标
+
+这部分属于 CSS3 的知识，现阶段只需要知道如何使用即可
+
+1. 在页面所有样式之前引入一个 CSS
+
+   https://at.alicdn.com/t/font_2960521_rqz39d8moo.css
+
+2. 打开「字体图标.html」找到自己想使用的图标，复制它对应的类样式
+
+3. 设置任何一个元素的类样式为：iconfont + 对应的图标类样式 即可
+
+> 学会设置图标的大小、颜色

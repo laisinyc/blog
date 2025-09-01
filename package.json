@@ -20,7 +20,8 @@
     "next-mdx-remote": "^5.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-feather": "^2.0.10"
+    "react-feather": "^2.0.10",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Card from '@/components/Card';
+// import Card from '@/components/Card';
 import MarkdownCode from '@/components/MarkdownCode';
 import styles from './HtmlTags.module.css';
 

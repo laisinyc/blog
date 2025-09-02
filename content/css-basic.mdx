@@ -5,88 +5,102 @@ publishedOn: '2021-09-06T12:00:00-0400'
 source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官 
 ---
 
-## CSS
+## 如何添加
 
-- apply css
+1. **Inline**: `<div style='width:100px;height:100px;...'></div>`
+2. **Internal CSS** (type prop is optional): `<head><style type='text/css'>css goes here</head>`
+3. **External CSS**: `<link ref='stylesheet' type='text/css' href='yourstyle.css'>`
 
-  1. inline: `<div style='width:100px;height:100px;...'></div`
-  2. in file css(type prop is optional): `<head><style type='text/css'>css goes here</head>`
-  3. external css: `<link ref='stylesheet' type='text/css' href='yourstyle.css'>`
+## CSS Specificity (256 进制)
 
-- css weights (256 进制)
+CSS specificity follows this hierarchy:
 
-  1. `!important`: Infinity
-  2. `inline`: 1000
-  3. `id`: 100
-  4. `class|prop|sudo_class`: 10
-  5. `tag|sudo_element`: 1
-  6. `*`: 0
+1. `!important`: Infinity
+2. `inline`: 1000
+3. `id`: 100
+4. `class|prop|sudo_class`: 10
+5. `tag|sudo_element`: 1
+6. `*`: 0
 
-## 补充
+## CSS Selectors
 
-1. content-box vs border-box
+- **` `** (space): Descendant selector; children, grandchildren, etc.
+- **`>`**: Child selector; direct children
+- **`~`**: Sibling selector; select all siblings
+- **`+`**: Select the first sibling
+- Pseudo Classes
+  - `:hover`, `:focus`, `:disabled`, `:checked`
+  - Additional pseudo class selectors
+    - `:link` - 选中未访问的链接
+    - `:visited` - 选中已访问的链接
+    - `:hover` - 选中鼠标移入的元素
+    - `:active` - 选中鼠标按下的元素
+    - `:focus` - 选中聚焦的**表单**元素
+    - `:disabled` - 选中被禁用的**表单**元素
+    - `:checked` - 选中被选中的**表单**元素
+    - `:first-child`
+    - `:last-child`
+    - `:nth-child(an+b)` - 选中第 `an+b` 个元素（a,b 为常量，n 从 0 开始递增）
+      - 选中奇数元素：`:nth-child(2n + 1)`
+    - `:first-of-type` - 选中第一个指定类型的子元素
+    - `:last-of-type`
+    - `:nth-of-type(an+b)`
+- Pseudo Elements
+  - `::before`, `::after`, `::placeholder`
 
-   - content-box: default value, will consider border and padding as part of width and height
-   - boarder-box: more intuitive, it uses given width and height, border and padding as addition size.
+---
 
-2. transparency control (alpha)
+## Content-Box vs Border-Box
 
-   - take value between [0, 1]: rgba or hsla
-   - 0: total transparent
-   - 1: not transparent
-   - rgba vs opacity
-     - rgba 仅作用于你所应用的属性上，例如 background: rgba(255, 0, 0, 0.5)
-     - opacity 作用于整个元素
+- **content-box**: Default value, will consider border and padding as part of width and height
+- **border-box**: More intuitive, it uses given width and height, border and padding as additional size
 
-   ```css
-   .alpha {
-     /* 一个完全透明的颜色，等同于 transparent */
-     color: rgba(0, 0, 0, 0);
-     /* 一个完全不透明的颜色，等同于rgb */
-     color: rgba(0, 0, 0, 1);
-     /* 一个半透明的颜色 */
-     color: rgba(0, 0, 0, 0.5);
-   }
-   ```
+## Transparency Control (Alpha)
 
-3. 尺寸的百分比 (15min)
+- Takes value between [0, 1]: `rgba` or `hsla`
+  - **0**: Total transparent
+  - **1**: Not transparent
+- RGBA vs Opacity
+  - **rgba**: 仅作用于你所应用的属性上，例如 `background: rgba(255, 0, 0, 0.5)`
+  - **opacity**: 作用于整个元素
+
+```css
+.alpha {
+  /* 一个完全透明的颜色，等同于 transparent */
+  color: rgba(0, 0, 0, 0);
+  /* 一个完全不透明的颜色，等同于rgb */
+  color: rgba(0, 0, 0, 1);
+  /* 一个半透明的颜色 */
+  color: rgba(0, 0, 0, 0.5);
+}
+```
+
+## 尺寸的百分比 (15min)
 
 - 绝大多数可以写尺寸的地方都可以使用百分比
 - 百分比是一个相对单位，需要有参考系
   - 普通元素的参考系为 **父元素内容区域** (**内容区域**，不包括 `padding`, `border`, `margin`)
   - 绝对定位元素的参考系为父元素中 **第一个定位元素的 padding 区域** (`padding` + `内容`，从 `padding` 开始计算)
 - 使用百分比高度时要注意，如果参考元素（父元素）使用了百分比，其高度取决于其子元素，如果此时子元素高度也为百分比则高度设置无效
-- padding, border, margin 百分比都相对于参考系的**宽度**来计算
+- `padding`, `border`, `margin` 百分比都相对于参考系的**宽度**来计算
 
-4. min-width & max-width
+## min-Width & max-Width
 
 - 当一个元素尺寸自动变化时，设置最大最小宽高，可以使其不至于变得过小或者过大
   - 设置一个页面的最小宽度，通常此宽度为设计稿的宽度
-  - 假设有一个 div.container 其中包含一个图片，可以设置图片的最大宽度避免超出 container 的范围
-- min width: control minimum width of a page
-- max width: limit image size
+  - 假设有一个 `div.container` 其中包含一个图片，可以设置图片的最大宽度避免超出 container 的范围
+- **min-width**: Control minimum width of a page
+- **max-width**: Limit image size
 
-5. z-index 的取值
+## z-index 的取值
 
-- 弹出菜单 -> 两位数
-- 固定菜单 -> 三位数
+- 弹出菜单 → 两位数
+- 固定菜单 → 三位数
 - 总之，不能随便取一个数字，要事先约定好
 
-## 02. 表单进阶-HTML
+---
 
-1. label 的不同绑定方式
-2. options select (multiple select)
-3. `button` vs `input type='button'`
-4. radio input
-5. check box input
-
-## 03. 表单进阶-CSS
-
-1. sudo class: hover, focus, disabled, checked
-2. sudo element: before, after, placeholder
-3. float height colapse: clear fix hack
-4. inline(inline-block) vertical align fix
-5. css selectors: ` `, `>`, `~`, `+`
+## Float Height Collapse: Clear Fix Hack
 
 ```html
 <!-- if an element contains only float element, it's height will be 0 -->
@@ -96,6 +110,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
   <button class="right">Reset</button>
 </div>
 ```
+
+### Solution 1: Add Block Element
 
 ```html
 <!-- clear fix hack 1 -->
@@ -111,9 +127,11 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 </div>
 ```
 
+### Solution 2: Pseudo Element
+
 ```css
 /* clear fix hack 2 */
-/* sudo element */
+/* pseudo element */
 .clearfix::after {
   content: '';
   display: block;
@@ -121,7 +139,9 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 }
 ```
 
-3. `checkbox` and `span` are not aligned vertically, how to fix?
+## Vertical Alignment Fix
+
+- `checkbox` and `span` are not aligned vertically, how to fix?
 
 ```html
 <!-- because both checkbox: inline-block; span: inline are inline elements -->
@@ -133,6 +153,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 </div>
 ```
 
+### Solution
+
 ```css
 /* use vertical align to adjust any element as needed */
 .policy span {
@@ -140,77 +162,62 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 }
 ```
 
-4. css ` `, `>`, `~`, `+` selector
+---
 
-- ` `: descendant selector; children, grandchildren, etc.
-- `>`: child selector; direct children
-- `~`: sibling selector; select all siblings
-- `+`: select the first sibling
-
-## 04. 精灵图
-
-- how to use sprite image
+## 精灵图
 
 ```css
 .sprite-img {
-  // set as size of image/icon fragment
+  /* set as size of image/icon fragment */
   width: 85px;
   height: 60px;
   /* or use background-position: -280px -240px; */
   /* the order doesn't matter */
-  backgound: url(./img/sprite.jpg) no-repeat -280px -240px;
+  background: url(./img/sprite.jpg) no-repeat -280px -240px;
   /* this is for debug only */
   outline: 1px solid;
 }
 ```
 
-## 05. 绝对定位
+---
 
-- 如何确定绝对定位元素的参考系
-  - absolute: reference to first positioned element
-  - fixed: reference to browser window
+## 如何确定绝对定位元素的参考系
 
-## 06. 属性值的计算过程
+- **absolute**: Reference to first positioned element
+- **fixed**: Reference to browser window
 
-- CSS 属性值的计算过程: 无属性 -> 计算(见下面四部) -> 每个元素都有值
-  1. 确定声明值：参考样式表中没有冲突的声明，作为 css 属性值
-  2. 层叠冲突：对样式表有冲突的声明使用层叠规则，确定 css 属性值
-     - 层叠规则：
-       1. 比较重要性；作者样式表替代浏览器默认样式
-       2. 比较特殊性（权重计算规则）
-       3. 比较源次序（后出现的替换前面出现的）
-  3. 使用继承：对仍然没有值的属性，如果可以继承，则继承父元素的值
-     - 文字相关可以继承
-  4. 使用默认值：对任然没有值的属性，使用默认值
-- 为什么给 a 元素的父元素设置颜色，无法影响 a 元素
-  - `a` 元素自带属性，需要手动设置去 override
+---
 
-## [居中](to_center_sth.md)
+## 属性值的计算过程
+
+CSS 属性值的计算过程: 无属性 → 计算(见下面四步) → 每个元素都有值
+
+1. **确定声明值**: 参考样式表中没有冲突的声明，作为 CSS 属性值
+2. **层叠冲突**: 对样式表有冲突的声明使用层叠规则，确定 CSS 属性值
+   - **层叠规则**:
+     1. 比较重要性；作者样式表替代浏览器默认样式
+     2. 比较特殊性（权重计算规则）
+     3. 比较源次序（后出现的替换前面出现的）
+3. **使用继承**: 对仍然没有值的属性，如果可以继承，则继承父元素的值
+   - 文字相关可以继承
+4. **使用默认值**: 对仍然没有值的属性，使用默认值
+
+## 为什么给 a 元素的父元素设置颜色，无法影响 a 元素
+
+- `a` 元素自带属性，需要手动设置去 override
+
+---
+
+## 居中
 
 - absolute position
 - flex box
 
-## 07. 拓展知识
+---
 
-- sudo class selectors:
-  - `:link` 选中未访问的链接
-  - `:visited` 选中已访问的链接
-  - `:hover` 选中鼠标移入的元素
-  - `:active` 选中鼠标按下的元素
-  - `:focus` 选中聚焦的**表单**元素
-  - `:disabled` 选中被禁用的**表单**元素
-  - `:checked` 选中被选中的**表单**元素
-  - `:first-child`
-  - `:last-child`
-  - `:nth-child(an+b)` 选中第 `an+b` 个元素（a,b 为常量，n 从 0 开始递增）
-    - 选中奇数元素：`:nth-child(2n + 1)`
-  - `:first-of-type` 选中第一个指定类型的子元素
-  - `:last-of-type`
-  - `:nth-of-type(an+b)`
-- `contenteditable`属性：`<div contenteditable>...</div>` 可以用来实现富文本框（已有现成插件，基本不再使用）
-- `table`元素：css3 普及之后很少使用（渲染速度慢前台很少使用）
+# Common CSS
 
-## common.css
+## CSS Reset
 
 ```css
 * {
@@ -219,13 +226,16 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
   list-style: none;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 a:hover {
   color: #ff6700;
 }
+
 html {
   color: #333;
   min-width: 1226px;
@@ -234,17 +244,19 @@ html {
 }
 ```
 
-[More on css reset](https://courses.joshwcomeau.com/css-for-js/03-components/07-global-styles)
+[More on CSS reset](https://courses.joshwcomeau.com/css-for-js/03-components/07-global-styles)
 
-## 浮动处理
+## Clearfix Hack
 
 ```css
 .fl {
   float: left;
 }
+
 .fr {
   float: right;
 }
+
 .clearfix::after {
   content: '';
   display: block;
@@ -252,7 +264,7 @@ html {
 }
 ```
 
-## 通用容器
+## Common Container
 
 ```css
 .container {
@@ -262,4 +274,11 @@ html {
 }
 ```
 
-## 字体图标
+## Font Icons
+
+Font icon implementation details would go here.
+
+## Other Features
+
+- **`contenteditable`属性**: `<div contenteditable>...</div>` 可以用来实现富文本框（已有现成插件，基本不再使用）
+- **`table`元素**: CSS3 普及之后很少使用（渲染速度慢前台很少使用）

@@ -14,6 +14,7 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
   3. external css: `<link ref='stylesheet' type='text/css' href='yourstyle.css'>`
 
 - css weights (256 进制)
+
   1. `!important`: Infinity
   2. `inline`: 1000
   3. `id`: 100
@@ -21,7 +22,7 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
   5. `tag|sudo_element`: 1
   6. `*`: 0
 
-## 01. 补充重要知识
+## 补充
 
 1. content-box vs border-box
 
@@ -33,6 +34,9 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
    - take value between [0, 1]: rgba or hsla
    - 0: total transparent
    - 1: not transparent
+   - rgba vs opacity
+     - rgba 仅作用于你所应用的属性上，例如 background: rgba(255, 0, 0, 0.5)
+     - opacity 作用于整个元素
 
    ```css
    .alpha {
@@ -45,36 +49,28 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
    }
    ```
 
-   2.1 rgba -> a vs opacity
+3. 尺寸的百分比 (15min)
 
-   - rgba 仅作用于你所应用的属性上，例如 background: rgba(255, 0, 0, 0.5)
-   - opacity 作用于整个元素
-
-3. percentage unit (15min)
-   - relative unit, we need to have a **reference** to calculate actual size
-   - non-positioned element reference **the parent element's content space**
-     - 注意是 **内容区域**，不包括 `padding`, `border`, `margin`
-   - positioned element reference it's first positioned parent element's **padding space** (measure from padding)
-     - 注意这里是 `padding` + `内容`，即从 `padding` 开始计算
-   - height: when use percentage height, the children element will look for it's parents height if parent height also depends on it's child height then the setting will be invalid!
-
-| css prop | percentage relative to     | NOTE                                                                         |
-| -------- | -------------------------- | ---------------------------------------------------------------------------- |
-| width    | reference element's width  |                                                                              |
-| height   | reference element's height | if reference element depends on referencer, the setting will not take effect |
-| padding  | reference element's width  |                                                                              |
-| border   | reference element's width  |                                                                              |
-| margin   | reference element's width  |                                                                              |
+- 绝大多数可以写尺寸的地方都可以使用百分比
+- 百分比是一个相对单位，需要有参考系
+  - 普通元素的参考系为 **父元素内容区域** (**内容区域**，不包括 `padding`, `border`, `margin`)
+  - 绝对定位元素的参考系为父元素中 **第一个定位元素的 padding 区域** (`padding` + `内容`，从 `padding` 开始计算)
+- 使用百分比高度时要注意，如果参考元素（父元素）使用了百分比，其高度取决于其子元素，如果此时子元素高度也为百分比则高度设置无效
+- padding, border, margin 百分比都相对于参考系的**宽度**来计算
 
 4. min-width & max-width
 
-   - min width: control minimum width of a page
-   - max width: limit image size
+- 当一个元素尺寸自动变化时，设置最大最小宽高，可以使其不至于变得过小或者过大
+  - 设置一个页面的最小宽度，通常此宽度为设计稿的宽度
+  - 假设有一个 div.container 其中包含一个图片，可以设置图片的最大宽度避免超出 container 的范围
+- min width: control minimum width of a page
+- max width: limit image size
 
 5. z-index 的取值
-   - 弹出菜单 -> 两位数
-   - 固定菜单 -> 三位数
-   - 总之，不能随便取一个数字，要事先约定好
+
+- 弹出菜单 -> 两位数
+- 固定菜单 -> 三位数
+- 总之，不能随便取一个数字，要事先约定好
 
 ## 02. 表单进阶-HTML
 
@@ -267,15 +263,3 @@ html {
 ```
 
 ## 字体图标
-
-这部分属于 CSS3 的知识，现阶段只需要知道如何使用即可
-
-1. 在页面所有样式之前引入一个 CSS
-
-   https://at.alicdn.com/t/font_2960521_rqz39d8moo.css
-
-2. 打开「字体图标.html」找到自己想使用的图标，复制它对应的类样式
-
-3. 设置任何一个元素的类样式为：iconfont + 对应的图标类样式 即可
-
-> 学会设置图标的大小、颜色

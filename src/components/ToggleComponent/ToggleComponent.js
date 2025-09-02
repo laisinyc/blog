@@ -8,7 +8,7 @@ function ToggleComponent({
   children,
   defaultVisible = false,
   showToggleButton = true,
-  toggleText = { show: 'Show', hide: 'Hide' },
+  toggleText = { show: 'Show Tags', hide: 'Hide Tags' },
   className = ''
 }) {
   const [isVisible, setIsVisible] = useState(defaultVisible);
@@ -23,8 +23,6 @@ function ToggleComponent({
         <motion.button
           className={styles.toggleButton}
           onClick={toggleVisibility}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           aria-expanded={isVisible}
           aria-controls="toggle-content"
         >

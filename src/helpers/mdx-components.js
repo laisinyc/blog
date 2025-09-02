@@ -5,9 +5,9 @@ import ToggleComponent from "@/components/ToggleComponent";
 
 const COMPONENT_MAP = {
   pre: CodeSnippet,
+  ToggleComponent,
   BoxModelDemo,
   HtmlTags,
-  ToggleComponent
 };
 
 export default COMPONENT_MAP;

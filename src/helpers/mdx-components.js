@@ -1,11 +1,13 @@
 import BoxModelDemo from "@/components/BoxModelDemo";
 import CodeSnippet from "@/components/CodeSnippet";
-import HtmlFormDemo from "@/components/HtmlFormDemo";
+import HtmlTags from "@/components/HtmlTags";
+import ToggleComponent from "@/components/ToggleComponent";
 
 const COMPONENT_MAP = {
   pre: CodeSnippet,
   BoxModelDemo,
-  HtmlFormDemo
+  HtmlTags,
+  ToggleComponent
 };
 
 export default COMPONENT_MAP;

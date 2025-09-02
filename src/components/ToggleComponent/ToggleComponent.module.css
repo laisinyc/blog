@@ -1,0 +1,103 @@
+.toggleContainer {
+  margin: 1.5rem 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.toggleButton {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.toggleButton:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.toggleButton:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.toggleText {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.toggleIcon {
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+  color: white;
+}
+
+.toggleContent {
+  padding: 1.5rem;
+  background: white;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Alternative styles */
+.toggleContainer.minimal {
+  border: none;
+  box-shadow: none;
+}
+
+.toggleContainer.minimal .toggleButton {
+  background: #f8fafc;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.toggleContainer.minimal .toggleButton:hover {
+  background: #f1f5f9;
+}
+
+.toggleContainer.minimal .toggleIcon {
+  color: #6b7280;
+}
+
+.toggleContainer.minimal .toggleContent {
+  border-top: none;
+  padding: 1rem 0;
+}
+
+/* Compact variant */
+.toggleContainer.compact .toggleButton {
+  padding: 0.75rem 1rem;
+}
+
+.toggleContainer.compact .toggleContent {
+  padding: 1rem;
+}
+
+.toggleContainer.compact .toggleText {
+  font-size: 0.875rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toggleButton {
+    padding: 0.875rem 1.25rem;
+  }
+
+  .toggleContent {
+    padding: 1.25rem;
+  }
+
+  .toggleText {
+    font-size: 0.875rem;
+  }
+}

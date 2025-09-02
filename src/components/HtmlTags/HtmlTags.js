@@ -1,12 +1,11 @@
 'use client';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import clsx from 'clsx';
 import Card from '@/components/Card';
 import MarkdownCode from '@/components/MarkdownCode';
-import styles from './HtmlFormDemo.module.css';
+import styles from './HtmlTags.module.css';
 
-function HtmlFormDemo() {
+function HtmlTags() {
   const [selectedRadio, setSelectedRadio] = React.useState('option1');
   const [checkboxes, setCheckboxes] = React.useState({
     feature1: false,
@@ -134,19 +133,16 @@ function HtmlFormDemo() {
 
   return (
     <Card as="section" className={styles.wrapper}>
-      <motion.header
+      {/* <motion.header
         className={styles.header}
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         <motion.h3 className={styles.title} variants={itemVariants}>
-          HTML Form Elements Demo
+          HTML Tags
         </motion.h3>
-        <motion.p className={styles.subtitle} variants={itemVariants}>
-          Interactive demonstration of radio buttons, checkboxes, and dropdown menus with animations
-        </motion.p>
-      </motion.header>
+      </motion.header> */}
 
       <motion.div
         className={styles.demoArea}
@@ -431,45 +427,8 @@ function HtmlFormDemo() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className={styles.explanation}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      >
-        <h4>How it works:</h4>
-        <ul>
-          <li>
-            <strong>Radio Buttons:</strong> Only one option can be selected at a time.
-            The selected option gets a blue border and scales up with animation.
-            <strong> Key attributes:</strong> <code>type=&quot;radio&quot;</code>, <code>name</code> (groups options), <code>value</code>, <code>checked</code>
-          </li>
-          <li>
-            <strong>Checkboxes:</strong> Multiple options can be selected independently.
-            Checked items show a green background with a checkmark and scale up.
-            <strong> Key attributes:</strong> <code>type=&quot;checkbox&quot;</code>, <code>name</code>, <code>value</code>, <code>checked</code>
-          </li>
-          <li>
-            <strong>Dropdown:</strong> Click to reveal options and select one.
-            The selected value is displayed below with a smooth fade-in animation.
-            <strong> Key attributes:</strong> <code>name</code>, <code>id</code>, <code>value</code>
-          </li>
-        </ul>
-        <div className={styles.codeExample}>
-          <code>
-            {`// Radio button selection: ${selectedRadio}
-// Checkbox states: ${JSON.stringify(checkboxes, null, 2)}
-// Dropdown selection: ${selectedDropdown || 'None'}
-
-// HTML Attributes in action:
-// Radio: type="radio" name="radioGroup" value="${selectedRadio}" ${selectedRadio ? 'checked' : ''}
-// Checkbox: type="checkbox" name="features" value="feature1" ${checkboxes.feature1 ? 'checked' : ''}
-// Select: name="technology" value="${selectedDropdown || ''}"`}
-          </code>
-        </div>
-      </motion.div>
     </Card>
   );
 }
 
-export default HtmlFormDemo;
+export default HtmlTags;

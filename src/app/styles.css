@@ -61,7 +61,6 @@ html {
   --content-width: 55rem;
   --outer-content-width: 80rem;
   --viewport-padding: 16px;
-  /* padding: 24px; */
   --header-height: 5rem;
   --trimmed-content-width: calc(var(--content-width) - var(--viewport-padding) * 2);
 }
@@ -129,19 +128,19 @@ h1 {
 }
 h2 {
   font-size: 1.5rem;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  /* margin-top: 0.5em; */
+  /* margin-bottom: 0.5em; */
   font-weight: 600;
 }
 h3 {
   font-size: 1.25rem;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  /* margin-top: 0.5em; */
+  /* margin-bottom: 0.5em; */
   font-weight: 500;
 }
 p {
   font-size: 1.25rem;
-  margin-bottom: 1.5em;
+  /* margin-bottom: 0.5em; */
 }
 p code {
   display: inline-block;
@@ -170,7 +169,6 @@ button {
   h1 {
     font-size: 2.25rem;
   }
-
   h2 {
     font-size: 1.75rem;
   }
@@ -192,4 +190,8 @@ table thead {
 
 table tbody tr:nth-child(even) {
   background: var(--table-secondary);
+}
+
+hr {
+  margin: 1rem 0;
 }

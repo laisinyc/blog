@@ -58,7 +58,7 @@ function FormSample() {
       <div className={[styles.formItem, styles.agreement].join(' ')} >
         <label>
           <input type='checkbox' />
-          <span>仅在对齐 inline 以及 inline-block 元素时候，才能使用 vertical-align!</span>
+          <span>仅在对齐 inline 以及 inline-block 元素时才能使用 vertical-align!</span>
         </label>
       </div>
       <div className={[styles.formItem, 'clearfix'].join(' ')} >

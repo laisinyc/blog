@@ -5,24 +5,13 @@ publishedOn: '2021-09-06T12:00:00-0400'
 source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官 
 ---
 
-## 如何添加
+## 如何引入 css
 
-1. **Inline**: `<div style='width:100px;height:100px;...'></div>`
-2. **Internal CSS** (type prop is optional): `<head><style type='text/css'>css goes here</head>`
-3. **External CSS**: `<link ref='stylesheet' type='text/css' href='yourstyle.css'>`
+- inline: `<div style='width:100px;height:100px;...'></div>`
+- internal (type='text/css' is optional): `<style type='text/css'>css goes here</style>`
+- external: `<link ref='stylesheet' type='text/css' href='yourstyle.css'>`
 
-## CSS Specificity (256 进制)
-
-CSS specificity follows this hierarchy:
-
-1. `!important`: Infinity
-2. `inline`: 1000
-3. `id`: 100
-4. `class|prop|sudo_class`: 10
-5. `tag|sudo_element`: 1
-6. `*`: 0
-
-## CSS Selectors
+## 选择器
 
 - **` `** (space): Descendant selector; children, grandchildren, etc.
 - **`>`**: Child selector; direct children
@@ -47,6 +36,15 @@ CSS specificity follows this hierarchy:
     - `:nth-of-type(an+b)`
 - Pseudo Elements
   - `::before`, `::after`, `::placeholder`
+
+### 选择器优先级 (256 进制)
+
+1. `!important`: Infinity
+2. `inline`: 1000
+3. `id`: 100
+4. `class|prop|sudo_class`: 10
+5. `tag|sudo_element`: 1
+6. `*`: 0
 
 ---
 
@@ -96,7 +94,7 @@ CSS specificity follows this hierarchy:
 
 - 弹出菜单 → 两位数
 - 固定菜单 → 三位数
-- 总之，不能随便取一个数字，要事先约定好
+- 不能随便取一个数字，要事先约定好
 
 ---
 

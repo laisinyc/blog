@@ -11,6 +11,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 - internal (type='text/css' is optional): `<style type='text/css'>css goes here</style>`
 - external: `<link ref='stylesheet' type='text/css' href='yourstyle.css'>`
 
+---
+
 ## 选择器
 
 - **` `** (space): Descendant selector; children, grandchildren, etc.
@@ -50,8 +52,12 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 
 ## Content-Box vs Border-Box
 
-- **content-box**: Default value, will consider border and padding as part of width and height
+- **content-box**: Default value, will add border and padding as part of width and height
 - **border-box**: More intuitive, it uses given width and height, border and padding as additional size
+
+<BoxModelDemo />
+
+---
 
 ## Transparency Control (Alpha)
 
@@ -73,6 +79,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 }
 ```
 
+---
+
 ## 尺寸的百分比 (15min)
 
 - 绝大多数可以写尺寸的地方都可以使用百分比
@@ -82,6 +90,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 - 使用百分比高度时要注意，如果参考元素（父元素）使用了百分比，其高度取决于其子元素，如果此时子元素高度也为百分比则高度设置无效
 - `padding`, `border`, `margin` 百分比都相对于参考系的**宽度**来计算
 
+---
+
 ## min-Width & max-Width
 
 - 当一个元素尺寸自动变化时，设置最大最小宽高，可以使其不至于变得过小或者过大
@@ -90,15 +100,18 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 - **min-width**: Control minimum width of a page
 - **max-width**: Limit image size
 
+---
+
 ## z-index 的取值
 
+- 作用于定位元素
 - 弹出菜单 → 两位数
 - 固定菜单 → 三位数
 - 不能随便取一个数字，要事先约定好
 
 ---
 
-## Float Height Collapse: Clear Fix Hack
+## Clear Fix Hack
 
 ```html
 <!-- if an element contains only float element, it's height will be 0 -->
@@ -107,13 +120,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
   <button class="left" disabled="disabled">Register</button>
   <button class="right">Reset</button>
 </div>
-```
 
-### Solution 1: Add Block Element
-
-```html
-<!-- clear fix hack 1 -->
-<!-- add a block element after float elements -->
+// Solution 1: add a block element after float elements
 <div class="form-item">
   <button class="left" disabled="disabled">Register</button>
   <button class="right">Reset</button>
@@ -123,13 +131,8 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
     clear: both;
   "></span>
 </div>
-```
 
-### Solution 2: Pseudo Element
-
-```css
-/* clear fix hack 2 */
-/* pseudo element */
+// Solution 2: css pseudo element
 .clearfix::after {
   content: '';
   display: block;
@@ -137,12 +140,14 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 }
 ```
 
+---
+
 ## Vertical Alignment Fix
 
-- `checkbox` and `span` are not aligned vertically, how to fix?
+改变 `span` 的文字大小 会导致 `checkbox` 和 `span` 水平上错位，如何修正？
 
 ```html
-<!-- because both checkbox: inline-block; span: inline are inline elements -->
+<!-- 当水平方向上有多个 inline, inline-block 元素时容易出现错位 -->
 <div class="form-item policy">
   <label>
     <input type="checkbox" />
@@ -179,10 +184,11 @@ source: EVPlayer -> 前端课程 -> 技术应用阶段 -> HTML + CSS 收官
 
 ---
 
-## 如何确定绝对定位元素的参考系
+## 绝对定位的参考系
 
-- **absolute**: Reference to first positioned element
-- **fixed**: Reference to browser window
+- 定位类型：static(默认值)、relative、absolute、fixed 和 sticky
+- **absolute**: first positioned element
+- **fixed**: browser window
 
 ---
 
@@ -200,9 +206,11 @@ CSS 属性值的计算过程: 无属性 → 计算(见下面四步) → 每个�
    - 文字相关可以继承
 4. **使用默认值**: 对仍然没有值的属性，使用默认值
 
+---
+
 ## 为什么给 a 元素的父元素设置颜色，无法影响 a 元素
 
-- `a` 元素自带属性，需要手动设置去 override
+`a` 元素自带属性，需要手动设置去 override
 
 ---
 
@@ -212,8 +220,6 @@ CSS 属性值的计算过程: 无属性 → 计算(见下面四步) → 每个�
 - flex box
 
 ---
-
-# Common CSS
 
 ## CSS Reset
 
@@ -244,23 +250,7 @@ html {
 
 [More on CSS reset](https://courses.joshwcomeau.com/css-for-js/03-components/07-global-styles)
 
-## Clearfix Hack
-
-```css
-.fl {
-  float: left;
-}
-
-.fr {
-  float: right;
-}
-
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-```
+---
 
 ## Common Container
 
@@ -272,7 +262,11 @@ html {
 }
 ```
 
+--
+
 ## Font Icons
+
+---
 
 ## Other Features
 

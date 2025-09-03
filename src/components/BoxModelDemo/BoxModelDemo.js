@@ -150,7 +150,7 @@ function BoxModelDemo() {
         </div>
       </div>
 
-      <div className={styles.explanation}>
+      {/* <div className={styles.explanation}>
         <h4>How it works:</h4>
         <ul>
           <li>
@@ -167,7 +167,7 @@ function BoxModelDemo() {
             {`box-sizing: ${boxModel};`}
           </code>
         </div>
-      </div>
+      </div> */}
     </Card>
   );
 }

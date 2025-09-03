@@ -1,0 +1,95 @@
+.form {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.form h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.formItem {
+  margin-bottom: 10px;
+}
+
+.formItem .textInput,
+.formItem select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.formItem input:focus {
+  border-color: #666;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.formItem button {
+  height: 44px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #007bff;
+}
+
+.formItem button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formItem button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.formItem .captchaInput {
+  width: 60%;
+}
+
+.formItem select {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.radioGroup span,
+.radioGroup label {
+  margin-left: 10px;
+}
+
+.agreement {
+  font-size: 12px;
+}
+
+.agreement span {
+  margin-left: 10px;
+  vertical-align: 2px;
+}
+
+.formItem label span,
+.formItem label input {
+  color: darkgray;
+  cursor: pointer;
+}
+
+.formItem input:checked ~ span {
+  color: #000;
+}
+
+/* 设置提示文字颜色，大小等样式 */
+.formItem input::placeholder {
+  color: pink;
+}

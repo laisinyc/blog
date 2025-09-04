@@ -10,7 +10,7 @@ const delay = (ms) =>
 export async function getBlogPostList() {
   // await delay(2000)
 
-  const fileNames = await readDirectory('/content');
+  const fileNames = await readDirectory('/content/');
 
   const blogPosts = [];
 

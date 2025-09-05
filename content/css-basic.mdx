@@ -221,6 +221,13 @@ CSS 属性值的计算过程: 无属性 → 计算(见下面四步) → 每个�
 
 ---
 
+## Other Features
+
+- **`contenteditable`属性**: `<div contenteditable>...</div>` 可以用来实现富文本框（已有现成插件，基本不再使用）
+- **`table`元素**: CSS3 普及之后很少使用（渲染速度慢前台很少使用）
+
+---
+
 ## CSS Reset
 
 ```css
@@ -252,7 +259,51 @@ html {
 
 ---
 
-## Common Container
+---
+
+## 统一样式
+
+所有的公共样式书写到 `common.css` 中
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #ff6700;
+}
+html {
+  color: #333;
+  min-width: 1226px;
+  font: 14px/1.5 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
+    'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif;
+}
+```
+
+## 浮动处理
+
+```css
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+```
+
+## 通用容器
 
 ```css
 .container {
@@ -262,16 +313,19 @@ html {
 }
 ```
 
---
+## 字体图标
 
-## Font Icons
+这部分属于 CSS3 的知识，现阶段只需要知道如何使用即可
 
----
+1. 在页面所有样式之前引入一个 CSS
 
-## Other Features
+   https://at.alicdn.com/t/font_2960521_rqz39d8moo.css
 
-- **`contenteditable`属性**: `<div contenteditable>...</div>` 可以用来实现富文本框（已有现成插件，基本不再使用）
-- **`table`元素**: CSS3 普及之后很少使用（渲染速度慢前台很少使用）
+2. 打开「字体图标.html」找到自己想使用的图标，复制它对应的类样式
+
+3. 设置任何一个元素的类样式为：iconfont + 对应的图标类样式 即可
+
+> 学会设置图标的大小、颜色
 
 ---
 
